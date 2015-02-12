@@ -1,0 +1,17 @@
+medium.editor_add:
+  route_name: medium.editor_add
+  title: 'Add editor'
+  appears_on:
+    - medium.admin
+
+medium.associate:
+  route_name: filter.admin_overview
+  title: 'Associate with text formats'
+  appears_on:
+    - medium.admin
+
+medium.button_add:
+  route_name: medium.button_add
+  title: 'Add button'
+  appears_on:
+    - medium.buttons

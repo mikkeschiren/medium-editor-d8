@@ -1,0 +1,8 @@
+name: Medium
+type: module
+description: Provides a medium-like text editor.
+package: Content authoring
+core: 8.x
+dependencies:
+  - editor
+configure: medium.admin

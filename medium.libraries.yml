@@ -1,0 +1,65 @@
+MEDIUM:
+  version: VERSION
+  js:
+    library/dist/js/medium-editor.min.js: {minified: true}
+  css:
+    component:
+      library/dist/css/medium-editor.min.css: {minified: true}
+  dependencies:
+    - core/jquery
+
+MEDIUM.dev:
+  version: VERSION
+  js:
+    library/dist/js/medium-editor.js: {}
+  css:
+    component:
+      library/dist/css/medium-editor.css: {}
+  dependencies:
+    - core/jquery
+
+drupal.medium:
+  version: VERSION
+  js:
+    js/medium.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+    - medium/MEDIUM
+
+drupal.medium.translation:
+  version: VERSION
+  js:
+    js/medium.translation.js: {}
+  dependencies:
+    - medium/drupal.medium
+
+drupal.medium.admin:
+  version: VERSION
+  js:
+    js/medium.admin.js: {}
+  css:
+    component:
+      css/medium.admin.css: {}
+  dependencies:
+    - core/drupal.states
+    - core/jquery.ui.sortable
+    - medium/drupal.medium
+
+drupal.xpreview:
+  version: VERSION
+  js:
+    js/drupal.xpreview.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+
+drupal.medium.xpreview:
+  version: VERSION
+  js:
+    js/medium.xpreview.js: {}
+  dependencies:
+    - medium/drupal.xpreview
+    - medium/drupal.medium

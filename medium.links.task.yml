@@ -1,0 +1,16 @@
+medium.admin:
+  title: 'Editors'
+  route_name: medium.admin
+  base_route: medium.admin
+  weight: -9
+
+medium.buttons:
+  title: 'Buttons'
+  route_name: medium.buttons
+  base_route: medium.admin
+
+medium.settings:
+  title: 'Settings'
+  route_name: medium.settings
+  base_route: medium.admin
+  weight: 9

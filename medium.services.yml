@@ -1,0 +1,4 @@
+services:
+  plugin.manager.medium.plugin:
+    class: Drupal\medium\MediumPluginManager
+    parent: default_plugin_manager

@@ -1,0 +1,80 @@
+/* Toolbar widget */
+.medium-tw {
+}
+.medium-tw .bue-toolbar {
+  min-height: 2em;
+  display: block;
+}
+.medium-tw .medium-available-toolbar {
+  background: #eee;
+  border: 1px dotted #aaa;
+  box-shadow: none;
+}
+.medium-tw .medium-tw-item {
+  cursor: move;
+}
+/* Helper */
+.medium-tw .ui-sortable-helper {
+  opacity: 0.8;
+}
+/* Newline */
+.medium-tw .bue-newline {
+  line-height: 1.9em;
+  margin: 0 0.1em;
+}
+.medium-tw .bue-newline:before {
+  content: "\21b5";
+  display: inline-block;
+}
+.medium-available-toolbar .bue-newline:after {
+  content: "";
+}
+/* Template button */
+.medium-tw .template-button.bue-button {
+  background: #f5f5f5;
+  border: 1px dotted #999;
+  border-radius: 0;
+  box-shadow: none;
+}
+.medium-tw .template-button-text {
+  font-size: 0.75em;
+}
+/* Placeholder */
+.medium-tw .ui-sortable-placeholder {
+  visibility: visible !important;
+  outline: 1px solid #09f;
+}
+.medium-tw .ui-sortable-placeholder.bue-button {
+  background: #fff;
+  border-color: #fff;
+}
+.medium-tw .ui-sortable-placeholder.bue-button:before {
+  content: ' ';
+}
+
+/* Demo */
+.form-item.medium-demo {
+  margin-top: 3em;
+}
+
+/* Remove first child margin in details wrapper */
+.details-wrapper > *:first-child,
+.details-wrapper > *:first-child > *:first-child {
+  margin-top: 0;
+}
+
+/* Button list */
+.medium-button-list {
+  margin-bottom: 2em;
+}
+.medium-button-list th.button-id {
+  width: 20%;
+}
+/* Plugin buttons */
+.medium-button-group {
+  margin-bottom: 2em;
+}
+.medium-button-group caption {
+  font-size: 1.1em;
+  font-weight: bold;
+}

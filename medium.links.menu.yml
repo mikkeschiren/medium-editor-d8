@@ -1,0 +1,5 @@
+medium.admin:
+  title: 'Medium'
+  description: 'Configure Medium.'
+  route_name: medium.admin
+  parent: system.admin_config_content
