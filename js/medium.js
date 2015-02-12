@@ -17,7 +17,7 @@ if (Drupal.editors) Drupal.editors.medium = {
   $field.parent().append('<div class="medium-editor-container">' + $field.val() + '</div>');
   $field.parent().parent().parent().find('label').hide();
   $field.hide();
-  return MediumEditor.attach(new MediumEditor('.editable-wrapper'));
+  return new MediumEditor('.editable-wrapper');
   },
   detach: function (element, format, trigger) {
     return MediumEditor.detach(element);
