@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\medium\Form\MediumEditorDeleteForm.
+ * Contains \Drupal\medium\Form\MediumDeleteForm.
  */
 
 namespace Drupal\medium\Form;
@@ -12,9 +12,9 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 
 /**
- * Provides a deletion confirmation form for Medium Editor.
+ * Provides a deletion confirmation form for Medium.
  */
-class MediumEditorDeleteForm extends EntityConfirmFormBase {
+class MediumDeleteForm extends EntityConfirmFormBase {
 
   /**
    * {@inheritdoc}

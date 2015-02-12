@@ -12,7 +12,7 @@ use Drupal\Core\Cache\CacheBackendInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\editor\Entity\Editor;
-use Drupal\medium\Entity\MediumEditor;
+use Drupal\medium\Entity\Medium;
 
 /**
  * Provides a plugin manager for Medium Plugins.
@@ -139,7 +139,7 @@ class MediumPluginManager extends DefaultPluginManager {
   /**
    * Alters javascript data of a Medium Editor entity.
    */
-  public function alterEditorJS(array &$data, MediumEditor $medium_editor, Editor $editor = NULL) {
+  public function alterEditorJS(array &$data, Medium $medium_editor, Editor $editor = NULL) {
     return $this->invokeAll('alterEditorJS', $data, $medium_editor, $editor);
   }
 
@@ -153,14 +153,14 @@ class MediumPluginManager extends DefaultPluginManager {
   /**
    * Alters a Medium Editor form.
    */
-  public function alterEditorForm(array &$form, FormStateInterface $form_state, MediumEditor $medium_editor) {
+  public function alterEditorForm(array &$form, FormStateInterface $form_state, Medium $medium_editor) {
     return $this->invokeAll('alterEditorForm', $form, $form_state, $medium_editor);
   }
 
   /**
    * Validates a Medium Editor form.
    */
-  public function validateEditorForm(array &$form, FormStateInterface $form_state, MediumEditor $medium_editor) {
+  public function validateEditorForm(array &$form, FormStateInterface $form_state, Medium $medium_editor) {
     return $this->invokeAll('validateEditorForm', $form, $form_state, $medium_editor);
   }
 }

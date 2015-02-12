@@ -11,7 +11,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\editor\Entity\Editor;
 use Drupal\Component\Utility\String;
 use Drupal\medium\MediumPluginBase;
-use Drupal\medium\Entity\MediumEditor;
+use Drupal\medium\Entity\Medium;
 use Drupal\medium\MediumToolbarWrapper;
 
 /**
@@ -57,7 +57,7 @@ class Core extends MediumPluginBase {
   /**
    * {@inheritdoc}
    */
-  public function alterEditorJS(array &$data, MediumEditor $medium_editor, Editor $editor = NULL) {
+  public function alterEditorJS(array &$data, Medium $medium_editor, Editor $editor = NULL) {
     // Add translation library for multilingual sites.
     $lang = \Drupal::service('language_manager')->getCurrentLanguage()->getId();
     if ($lang !== 'en' && \Drupal::service('module_handler')->moduleExists('locale')) {
@@ -85,7 +85,7 @@ class Core extends MediumPluginBase {
     }
     // Set editor id as the class name
     $cname = &$data['settings']['cname'];
-    $cname = 'bue--' . $medium_editor->id() . (isset($cname) ? ' ' . $cname : '');
+    $cname = 'med--' . $medium_editor->id() . (isset($cname) ? ' ' . $cname : '');
   }
 
   /**
@@ -115,14 +115,14 @@ class Core extends MediumPluginBase {
   /**
    * {@inheritdoc}
    */
-  public function alterEditorForm(array &$form, FormStateInterface $form_state, MediumEditor $medium_editor) {
+  public function alterEditorForm(array &$form, FormStateInterface $form_state, Medium $medium_editor) {
     $form['settings'] += $this->getForm($form_state, $medium_editor);
   }
 
   /**
    * {@inheritdoc}
    */
-  public function validateEditorForm(array &$form, FormStateInterface $form_state, MediumEditor $medium_editor) {
+  public function validateEditorForm(array &$form, FormStateInterface $form_state, Medium $medium_editor) {
     // Check class name
     $cname = $form_state->getValue(array('settings', 'cname'));
     if (!empty($cname) && preg_match('/[^a-zA-Z0-9\-_ ]/', $cname)) {
@@ -140,7 +140,7 @@ class Core extends MediumPluginBase {
   /**
    * Returns core settings form.
    */
-  public function getForm(FormStateInterface $form_state, MediumEditor $medium_editor) {
+  public function getForm(FormStateInterface $form_state, Medium $medium_editor) {
     // Class name
     $form['cname'] = array(
       '#type' => 'textfield',

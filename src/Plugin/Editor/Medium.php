@@ -11,7 +11,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\editor\Entity\Editor;
 use Drupal\editor\Plugin\EditorBase;
-use Drupal\medium\Entity\MediumEditor;
+use Drupal\medium\Entity\Medium;
 
 /**
  * Defines Medium as an Editor plugin.
@@ -99,7 +99,7 @@ class Medium extends EditorBase {
    * {@inheritdoc}
    */
   public function getLibraries(Editor $editor) {
-    $medium_editor = $this->getMediumEditor($editor);
+    $medium_editor = $this->getMedium($editor);
     return $medium_editor ? $medium_editor->getLibraries($editor) : array();
   }
 
@@ -107,25 +107,25 @@ class Medium extends EditorBase {
    * {@inheritdoc}
    */
   public function getJSSettings(Editor $editor) {
-    $medium_editor = $this->getMediumEditor($editor);
+    $medium_editor = $this->getMedium($editor);
     return $medium_editor ? $medium_editor->getJSSettings($editor) : array();
   }
 
   /**
    * Returns the selected Medium Editor entity for an account from editor settings.
    */
-  public static function getMediumEditor(Editor $editor, AccountInterface $account = NULL) {
+  public static function getMedium(Editor $editor, AccountInterface $account = NULL) {
     if (!isset($account)) {
       $account = \Drupal::currentUser();
     }
-    $id = static::getMediumEditorId($editor, $account);
+    $id = static::getMediumId($editor, $account);
     return $id ? entity_load('medium_editor', $id) : FALSE;
   }
 
   /**
    * Returns the selected Medium Editor id for an account from editor settings.
    */
-  public static function getMediumEditorId(Editor $editor, AccountInterface $account) {
+  public static function getMediumId(Editor $editor, AccountInterface $account) {
     $settings = $editor->getSettings();
     if (!empty($settings['roles_editors'])) {
       // Filter roles in two steps. May avoid a db hit by filter_get_roles_by_format().

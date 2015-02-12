@@ -11,7 +11,7 @@ use Drupal\Core\Plugin\PluginBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\editor\Entity\Editor;
 use Drupal\medium\MediumPluginInterface;
-use Drupal\medium\Entity\MediumEditor;
+use Drupal\medium\Entity\Medium;
 
 /**
  * Defines a base Medium plugin implementation.
@@ -32,7 +32,7 @@ abstract class MediumPluginBase extends PluginBase implements MediumPluginInterf
   /**
    * {@inheritdoc}
    */
-  public function alterEditorJS(array &$data, MediumEditor $medium_editor, Editor $editor = NULL) {
+  public function alterEditorJS(array &$data, Medium $medium_editor, Editor $editor = NULL) {
   }
 
   /**
@@ -44,12 +44,12 @@ abstract class MediumPluginBase extends PluginBase implements MediumPluginInterf
   /**
    * {@inheritdoc}
    */
-  public function alterEditorForm(array &$form, FormStateInterface $form_state, MediumEditor $medium_editor) {
+  public function alterEditorForm(array &$form, FormStateInterface $form_state, Medium $medium_editor) {
   }
 
   /**
    * {@inheritdoc}
    */
-  public function validateEditorForm(array &$form, FormStateInterface $form_state, MediumEditor $medium_editor) {
+  public function validateEditorForm(array &$form, FormStateInterface $form_state, Medium $medium_editor) {
   }
 }

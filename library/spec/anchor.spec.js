@@ -1,4 +1,4 @@
-/*global MediumEditor, describe, it, expect, spyOn,
+/*global Medium, describe, it, expect, spyOn,
      afterEach, beforeEach, selectElementContents,
      jasmine, fireEvent, console, tearDown,
      selectElementContentsAndFire, xit */
@@ -21,9 +21,9 @@ describe('Anchor Button TestCase', function () {
 
     describe('Click', function () {
         it('should display the anchor form when toolbar is visible', function () {
-            spyOn(MediumEditor.prototype, 'showAnchorForm').and.callThrough();
+            spyOn(Medium.prototype, 'showAnchorForm').and.callThrough();
             var button,
-                editor = new MediumEditor('.editor');
+                editor = new Medium('.editor');
             selectElementContentsAndFire(editor.elements[0]);
             jasmine.clock().tick(1);
             button = editor.toolbar.querySelector('[data-action="anchor"]');
@@ -34,9 +34,9 @@ describe('Anchor Button TestCase', function () {
         });
 
         it('should display the toolbar actions when anchor form is visible', function () {
-            spyOn(MediumEditor.prototype, 'showToolbarActions').and.callThrough();
+            spyOn(Medium.prototype, 'showToolbarActions').and.callThrough();
             var button,
-                editor = new MediumEditor('.editor');
+                editor = new Medium('.editor');
             selectElementContentsAndFire(editor.elements[0]);
             jasmine.clock().tick(11); // checkSelection delay
             button = editor.toolbar.querySelector('[data-action="anchor"]');
@@ -51,7 +51,7 @@ describe('Anchor Button TestCase', function () {
             spyOn(document, 'execCommand').and.callThrough();
             this.el.innerHTML = '<a href="#">link</a>';
             var button,
-                editor = new MediumEditor('.editor');
+                editor = new Medium('.editor');
             selectElementContentsAndFire(editor.elements[0]);
             jasmine.clock().tick(11); // checkSelection delay
             button = editor.toolbar.querySelector('[data-action="anchor"]');
@@ -64,8 +64,8 @@ describe('Anchor Button TestCase', function () {
 
     describe('Link Creation', function () {
         it('should create a link when user presses enter', function () {
-            spyOn(MediumEditor.prototype, 'createLink').and.callThrough();
-            var editor = new MediumEditor('.editor'),
+            spyOn(Medium.prototype, 'createLink').and.callThrough();
+            var editor = new Medium('.editor'),
                 button,
                 input;
 
@@ -78,8 +78,8 @@ describe('Anchor Button TestCase', function () {
             expect(editor.createLink).toHaveBeenCalled();
         });
         it('shouldn\'t create a link when user presses enter without value', function () {
-            spyOn(MediumEditor.prototype, 'createLink').and.callThrough();
-            var editor = new MediumEditor('.editor'),
+            spyOn(Medium.prototype, 'createLink').and.callThrough();
+            var editor = new Medium('.editor'),
                 button,
                 input;
 
@@ -92,7 +92,7 @@ describe('Anchor Button TestCase', function () {
             expect(editor.elements[0].querySelector('a')).toBeNull();
         });
         it('should add http:// if need be and checkLinkFormat option is set to true', function () {
-            var editor = new MediumEditor('.editor', {
+            var editor = new Medium('.editor', {
                 checkLinkFormat: true
             });
             selectElementContentsAndFire(editor.elements[0]);
@@ -102,7 +102,7 @@ describe('Anchor Button TestCase', function () {
             expect(editor.elements[0].querySelector('a').href).toBe('http://test.com/');
         });
         it('should not change protocol when a valid one is included', function () {
-            var editor = new MediumEditor('.editor', {
+            var editor = new Medium('.editor', {
                 checkLinkFormat: true
             }),
                 validUrl = 'mailto:test.com';
@@ -113,7 +113,7 @@ describe('Anchor Button TestCase', function () {
             expect(editor.elements[0].querySelector('a').href).toBe(validUrl);
         });
         it('should add target="_blank" when respective option is set to true', function () {
-            var editor = new MediumEditor('.editor', {
+            var editor = new Medium('.editor', {
                 targetBlank: true
             });
             selectElementContentsAndFire(editor.elements[0]);
@@ -123,8 +123,8 @@ describe('Anchor Button TestCase', function () {
             expect(editor.elements[0].querySelector('a').target).toBe('_blank');
         });
         it('should create a button when user selects this option and presses enter', function () {
-            spyOn(MediumEditor.prototype, 'createLink').and.callThrough();
-            var editor = new MediumEditor('.editor', {
+            spyOn(Medium.prototype, 'createLink').and.callThrough();
+            var editor = new Medium('.editor', {
                 anchorButton: true,
                 anchorButtonClass: 'btn btn-default'
             }),
@@ -152,8 +152,8 @@ describe('Anchor Button TestCase', function () {
 
     describe('Cancel', function () {
         it('should close the link form when user clicks on cancel', function () {
-            spyOn(MediumEditor.prototype, 'showToolbarActions').and.callThrough();
-            var editor = new MediumEditor('.editor'),
+            spyOn(Medium.prototype, 'showToolbarActions').and.callThrough();
+            var editor = new Medium('.editor'),
                 button,
                 cancel;
 

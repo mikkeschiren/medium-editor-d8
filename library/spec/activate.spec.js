@@ -1,4 +1,4 @@
-/*global MediumEditor, describe, it, expect, spyOn, jasmine, fireEvent,
+/*global Medium, describe, it, expect, spyOn, jasmine, fireEvent,
          afterEach, beforeEach, selectElementContents, runs, waitsFor,
          tearDown, xit, selectElementContentsAndFire */
 
@@ -17,7 +17,7 @@ describe('Activate/Deactivate TestCase', function () {
     });
 
     it('should toggle the isActive property', function () {
-        var editor = new MediumEditor('.editor');
+        var editor = new Medium('.editor');
         editor.deactivate();
         expect(editor.isActive).toBe(false);
         editor.activate();
@@ -28,9 +28,9 @@ describe('Activate/Deactivate TestCase', function () {
 
     describe('Activate', function () {
         it('should init the toolbar and editor elements', function () {
-            var editor = new MediumEditor('.editor');
+            var editor = new Medium('.editor');
             editor.deactivate();
-            spyOn(MediumEditor.prototype, 'setup').and.callThrough();
+            spyOn(Medium.prototype, 'setup').and.callThrough();
             editor.activate();
             expect(editor.setup).toHaveBeenCalled();
         });
@@ -46,8 +46,8 @@ describe('Activate/Deactivate TestCase', function () {
             jasmine.clock().uninstall();
         });
 
-        it('should remove mediumEditor elements from DOM', function () {
-            var editor = new MediumEditor('.editor');
+        it('should remove Medium elements from DOM', function () {
+            var editor = new Medium('.editor');
             expect(document.querySelector('.medium-editor-toolbar')).toBeTruthy();
             expect(document.querySelector('.medium-editor-anchor-preview')).toBeTruthy();
             editor.deactivate();
@@ -56,7 +56,7 @@ describe('Activate/Deactivate TestCase', function () {
         });
 
         it('should remove all the added events', function () {
-            var editor = new MediumEditor('.editor');
+            var editor = new Medium('.editor');
             expect(editor.events.length).toBeGreaterThan(0);
             editor.deactivate();
             expect(editor.events.length).toBe(0);
@@ -65,7 +65,7 @@ describe('Activate/Deactivate TestCase', function () {
         it('should abort any pending throttled event handlers', function () {
             var editor, triggerEvents;
 
-            editor = new MediumEditor('.editor', {delay: 5});
+            editor = new Medium('.editor', {delay: 5});
             triggerEvents = function () {
                 fireEvent(window, 'resize', null, false);
                 fireEvent(document.body, 'click', null, false, document.body);
@@ -105,7 +105,7 @@ describe('Activate/Deactivate TestCase', function () {
 
             jasmine.clock().install();
 
-            editor = new MediumEditor('.editor');
+            editor = new Medium('.editor');
 
             spyOn(editor, 'hideToolbarActions').and.callThrough(); // via: handleBlur
 
@@ -131,7 +131,7 @@ describe('Activate/Deactivate TestCase', function () {
 
         // regression test for https://github.com/daviferreira/medium-editor/issues/197
         it('should not crash when deactivated immediately after a mouse click', function () {
-            var editor = new MediumEditor('.editor');
+            var editor = new Medium('.editor');
             // selected some content and let the toolbar appear
             selectElementContents(editor.elements[0]);
             jasmine.clock().tick(501);

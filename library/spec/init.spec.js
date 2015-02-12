@@ -1,4 +1,4 @@
-/*global MediumEditor, describe, it, expect, spyOn,
+/*global Medium, describe, it, expect, spyOn,
          afterEach, beforeEach, tearDown*/
 
 describe('Initialization TestCase', function () {
@@ -6,27 +6,27 @@ describe('Initialization TestCase', function () {
 
     describe('Objects', function () {
         it('should call init when instantiated', function () {
-            spyOn(MediumEditor.prototype, 'init');
-            var editor = new MediumEditor('.test');
+            spyOn(Medium.prototype, 'init');
+            var editor = new Medium('.test');
             expect(editor.init).toHaveBeenCalled();
         });
 
         it('should accept multiple instances', function () {
-            spyOn(MediumEditor.prototype, 'init');
-            var editor1 = new MediumEditor('.test'),
-                editor2 = new MediumEditor('.test');
+            spyOn(Medium.prototype, 'init');
+            var editor1 = new Medium('.test'),
+                editor2 = new Medium('.test');
             expect(editor1 === editor2).toBe(false);
-            expect(MediumEditor.prototype.init).toHaveBeenCalled();
-            expect(MediumEditor.prototype.init.calls.count()).toBe(2);
+            expect(Medium.prototype.init).toHaveBeenCalled();
+            expect(Medium.prototype.init.calls.count()).toBe(2);
         });
 
         it('should do nothing when selector does not return any elements', function () {
-            spyOn(MediumEditor.prototype, 'initElements');
-            spyOn(MediumEditor.prototype, 'initToolbar');
-            spyOn(MediumEditor.prototype, 'bindSelect');
-            spyOn(MediumEditor.prototype, 'bindButtons');
-            spyOn(MediumEditor.prototype, 'bindAnchorForm');
-            var editor = new MediumEditor('.test');
+            spyOn(Medium.prototype, 'initElements');
+            spyOn(Medium.prototype, 'initToolbar');
+            spyOn(Medium.prototype, 'bindSelect');
+            spyOn(Medium.prototype, 'bindButtons');
+            spyOn(Medium.prototype, 'bindAnchorForm');
+            var editor = new Medium('.test');
             expect(editor.id).toBe(undefined);
             expect(editor.initElements).not.toHaveBeenCalled();
             expect(editor.initToolbar).not.toHaveBeenCalled();
@@ -41,27 +41,27 @@ describe('Initialization TestCase', function () {
         it('should allow a string as parameter', function () {
             spyOn(document, 'querySelectorAll').and.callThrough();
             (function () {
-                return new MediumEditor('.test');
+                return new Medium('.test');
             }());
             expect(document.querySelectorAll).toHaveBeenCalled();
         });
 
         it('should allow a list of html elements as parameters', function () {
             var elements = document.querySelectorAll('span'),
-                editor = new MediumEditor(elements);
+                editor = new Medium(elements);
             expect(editor.elements.length).toEqual(elements.length);
         });
 
         it('should allow a single element as parameter', function () {
             var element = document.querySelector('span'),
-                editor = new MediumEditor(element);
+                editor = new Medium(element);
             expect(editor.elements).toEqual([element]);
         });
 
         it('should always initalize elements as an Array', function () {
             var nodeList = document.querySelectorAll('span'),
                 node = document.querySelector('span'),
-                editor = new MediumEditor(nodeList);
+                editor = new Medium(nodeList);
 
             // nodeList is a NodeList, similar to an array but not of the same type
             expect(editor.elements.length).toEqual(nodeList.length);
@@ -69,16 +69,16 @@ describe('Initialization TestCase', function () {
             expect(typeof editor.elements.forEach).toBe('function');
             editor.deactivate();
 
-            editor = new MediumEditor('span');
+            editor = new Medium('span');
             expect(editor.elements.length).toEqual(nodeList.length);
             editor.deactivate();
 
-            editor = new MediumEditor(node);
+            editor = new Medium(node);
             expect(editor.elements.length).toEqual(1);
             expect(editor.elements[0]).toBe(node);
             editor.deactivate();
 
-            editor = new MediumEditor();
+            editor = new Medium();
             expect(editor.elements).not.toBe(null);
             expect(editor.elements.length).toBe(0);
             editor.deactivate();
@@ -133,7 +133,7 @@ describe('Initialization TestCase', function () {
                 firstButtonClass: 'medium-editor-button-first',
                 lastButtonClass: 'medium-editor-button-last'
             },
-                editor = new MediumEditor('.editor');
+                editor = new Medium('.editor');
             expect(editor.options).toEqual(defaultOptions);
         });
 
@@ -147,17 +147,17 @@ describe('Initialization TestCase', function () {
                 secondHeader: 'h3',
                 delay: 300
             },
-                editor = new MediumEditor('.editor', options);
+                editor = new Medium('.editor', options);
             expect(editor.options).toEqual(options);
         });
 
         it('should call the default initialization methods', function () {
-            spyOn(MediumEditor.prototype, 'initElements').and.callThrough();
-            spyOn(MediumEditor.prototype, 'initToolbar').and.callThrough();
-            spyOn(MediumEditor.prototype, 'bindSelect').and.callThrough();
-            spyOn(MediumEditor.prototype, 'bindButtons').and.callThrough();
-            spyOn(MediumEditor.prototype, 'bindAnchorForm').and.callThrough();
-            var editor = new MediumEditor('.editor');
+            spyOn(Medium.prototype, 'initElements').and.callThrough();
+            spyOn(Medium.prototype, 'initToolbar').and.callThrough();
+            spyOn(Medium.prototype, 'bindSelect').and.callThrough();
+            spyOn(Medium.prototype, 'bindButtons').and.callThrough();
+            spyOn(Medium.prototype, 'bindAnchorForm').and.callThrough();
+            var editor = new Medium('.editor');
             expect(editor.id).toBe(1);
             expect(editor.initElements).toHaveBeenCalled();
             expect(editor.initToolbar).toHaveBeenCalled();
@@ -168,9 +168,9 @@ describe('Initialization TestCase', function () {
         });
 
         it('should set the ID according to the numbers of editors instantiated', function () {
-            var editor1 = new MediumEditor('.editor'),
-                editor2 = new MediumEditor('.editor'),
-                editor3 = new MediumEditor('.editor');
+            var editor1 = new Medium('.editor'),
+                editor2 = new Medium('.editor'),
+                editor3 = new Medium('.editor');
             expect(editor1.id).toBe(1);
             expect(editor2.id).toBe(2);
             expect(editor3.id).toBe(3);
@@ -178,13 +178,13 @@ describe('Initialization TestCase', function () {
 
         it('should not reset ID when deactivated and then re-initialized', function () {
             var secondEditor = document.createElement('div'),
-                editor1 = new MediumEditor('.editor'),
+                editor1 = new Medium('.editor'),
                 editor2;
 
             secondEditor.className = 'editor-two';
             document.body.appendChild(secondEditor);
 
-            editor2 = new MediumEditor('.editor-two');
+            editor2 = new Medium('.editor-two');
             editor1.deactivate();
             editor1.init('.editor');
 
@@ -194,17 +194,17 @@ describe('Initialization TestCase', function () {
         it('should use document.body as element container when no container element is specified', function () {
             spyOn(document.body, 'appendChild').and.callThrough();
             (function () {
-                return new MediumEditor('.editor');
+                return new Medium('.editor');
             }());
             expect(document.body.appendChild).toHaveBeenCalled();
         });
 
-        it('should accept a custom element container for MediumEditor elements', function () {
+        it('should accept a custom element container for Medium elements', function () {
             var div = document.createElement('div');
             document.body.appendChild(div);
             spyOn(div, 'appendChild').and.callThrough();
             (function () {
-                return new MediumEditor('.editor', {
+                return new Medium('.editor', {
                     elementsContainer: div
                 });
             }());

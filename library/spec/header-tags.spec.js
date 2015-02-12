@@ -1,4 +1,4 @@
-/*global MediumEditor, describe, it, expect, spyOn,
+/*global Medium, describe, it, expect, spyOn,
          afterEach, beforeEach, fireEvent, waits,
          jasmine, selectElementContents, tearDown */
 
@@ -23,7 +23,7 @@ describe('Protect Header Tags TestCase', function () {
             jasmine.clock().install();
 
             // place cursor at begining of header
-            var editor = new MediumEditor('.editor'),
+            var editor = new Medium('.editor'),
                 el = document.getElementById("header"),
                 range = document.createRange(),
                 sel = window.getSelection();
@@ -47,7 +47,7 @@ describe('Protect Header Tags TestCase', function () {
             jasmine.clock().install();
 
             // place cursor at begining of header
-            var editor = new MediumEditor('.editor'),
+            var editor = new Medium('.editor'),
                 el = document.getElementById("header"),
                 range = document.createRange(),
                 sel = window.getSelection();
@@ -68,7 +68,7 @@ describe('Protect Header Tags TestCase', function () {
             jasmine.clock().install();
 
             // place cursor at begining of header
-            var editor = new MediumEditor('.editor'),
+            var editor = new Medium('.editor'),
                 originalHTML = document.getElementById("editor").innerHTML,
                 el = document.getElementById("header"),
                 range = document.createRange(),

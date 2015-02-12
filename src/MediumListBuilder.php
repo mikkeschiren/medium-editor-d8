@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\medium\MediumEditorListBuilder.
+ * Contains \Drupal\medium\MediumListBuilder.
  */
 
 namespace Drupal\medium;
@@ -14,9 +14,9 @@ use Drupal\Component\Utility\String;
 /**
  * Defines a class to build a list of Medium Editor entities.
  *
- * @see \Drupal\medium\Entity\MediumEditor
+ * @see \Drupal\medium\Entity\Medium
  */
-class MediumEditorListBuilder extends ConfigEntityListBuilder {
+class MediumListBuilder extends ConfigEntityListBuilder {
 
   /**
    * {@inheritdoc}

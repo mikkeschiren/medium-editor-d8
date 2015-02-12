@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\medium\Form\MediumEditorForm.
+ * Contains \Drupal\medium\Form\MediumForm.
  */
 
 namespace Drupal\medium\Form;
@@ -12,9 +12,9 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Component\Utility\String;
 
 /**
- * Base form for Medium Editor entities.
+ * Base form for Medium entities.
  */
-class MediumEditorForm extends EntityForm {
+class MediumForm extends EntityForm {
 
   /**
    * {@inheritdoc}

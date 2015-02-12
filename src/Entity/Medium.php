@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\medium\Entity\MediumEditor.
+ * Contains \Drupal\medium\Entity\Medium.
  */
 
 namespace Drupal\medium\Entity;
@@ -17,12 +17,12 @@ use Drupal\editor\Entity\Editor;
  *   id = "medium_editor",
  *   label = @Translation("Medium Editor"),
  *   handlers = {
- *     "list_builder" = "Drupal\medium\MediumEditorListBuilder",
+ *     "list_builder" = "Drupal\medium\MediumListBuilder",
  *     "form" = {
- *       "add" = "Drupal\medium\Form\MediumEditorForm",
- *       "edit" = "Drupal\medium\Form\MediumEditorForm",
- *       "delete" = "Drupal\medium\Form\MediumEditorDeleteForm",
- *       "duplicate" = "Drupal\medium\Form\MediumEditorForm"
+ *       "add" = "Drupal\medium\Form\MediumForm",
+ *       "edit" = "Drupal\medium\Form\MediumForm",
+ *       "delete" = "Drupal\medium\Form\MediumDeleteForm",
+ *       "duplicate" = "Drupal\medium\Form\MediumForm"
  *     }
  *   },
  *   admin_permission = "administer medium",
@@ -38,7 +38,7 @@ use Drupal\editor\Entity\Editor;
  *   }
  * )
  */
-class MediumEditor extends ConfigEntityBase {
+class Medium extends ConfigEntityBase {
 
   /**
    * Editor ID.

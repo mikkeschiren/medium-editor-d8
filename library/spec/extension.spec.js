@@ -1,4 +1,4 @@
-/*global MediumEditor, describe, it, expect, spyOn,
+/*global Medium, describe, it, expect, spyOn,
          afterEach, beforeEach, selectElementContents,
          jasmine, fireEvent, tearDown*/
 
@@ -23,7 +23,7 @@ describe('Extensions TestCase', function () {
                 'extension1': {},
                 'extension2': {}
             },
-                editor = new MediumEditor('.editor', {
+                editor = new Medium('.editor', {
                     extensions: extensions
                 });
             expect(editor.options.extensions).toBe(extensions);
@@ -36,7 +36,7 @@ describe('Extensions TestCase', function () {
             },
                 ext1 = new Extension(),
                 ext2 = new Extension(),
-                editor = new MediumEditor('.editor', {
+                editor = new Medium('.editor', {
                     extensions: {
                         'one': ext1,
                         'two': ext2
@@ -73,15 +73,15 @@ describe('Extensions TestCase', function () {
             ext1 = new ExtensionOne();
             ext2 = new ExtensionTwo();
 
-            editor = new MediumEditor('.editor', {
+            editor = new Medium('.editor', {
                 extensions: {
                     'one': ext1,
                     'two': ext2
                 }
             });
 
-            expect(ext1.me instanceof MediumEditor).toBeTruthy();
-            expect(ext2.me instanceof MediumEditor).toBeTruthy();
+            expect(ext1.me instanceof Medium).toBeTruthy();
+            expect(ext2.me instanceof Medium).toBeTruthy();
             editor.deactivate();
         });
     });
@@ -106,7 +106,7 @@ describe('Extensions TestCase', function () {
             };
 
         it('should include extensions button into toolbar', function () {
-            var editor = new MediumEditor('.editor', {
+            var editor = new Medium('.editor', {
                 buttons: ['dummy'],
                 extensions: {
                     'dummy': ExtensionWithElement
@@ -116,7 +116,7 @@ describe('Extensions TestCase', function () {
         });
 
         it('should include extensions button by string into the toolbar', function () {
-            var editor = new MediumEditor('.editor', {
+            var editor = new Medium('.editor', {
                 buttons: ['dummy'],
                 extensions: {
                     'dummy': ExtensionWithString
@@ -126,7 +126,7 @@ describe('Extensions TestCase', function () {
         });
 
         it('should not include extensions button into toolbar that are not in "buttons"', function () {
-            var editor = new MediumEditor('.editor', {
+            var editor = new Medium('.editor', {
                 buttons: ['bold'],
                 extensions: {
                     'dummy': ExtensionWithElement
@@ -140,7 +140,7 @@ describe('Extensions TestCase', function () {
                 editor;
 
             spyOn(ext, 'init');
-            editor = new MediumEditor('.editor', {
+            editor = new Medium('.editor', {
                 buttons: ['bold', 'italic'],
                 extensions: {
                     'bold': ext
@@ -163,33 +163,33 @@ describe('Extensions TestCase', function () {
             extTwo = new ExtensionTwo();
 
         it('should check if extension class has parent attribute', function () {
-            var editor = new MediumEditor('.editor', {
+            var editor = new Medium('.editor', {
                 extensions: {
                     'one': extOne,
                     'two': extTwo
                 }
             });
 
-            expect(editor instanceof MediumEditor).toBeTruthy();
+            expect(editor instanceof Medium).toBeTruthy();
             expect(extOne.parent).toBeTruthy();
             expect(extTwo.parent).toBeUndefined();
         });
 
         it('should set the base attribute to be an instance of editor', function () {
-            var editor = new MediumEditor('.editor', {
+            var editor = new Medium('.editor', {
                 extensions: {
                     'one': extOne,
                     'two': extTwo
                 }
             });
 
-            expect(editor instanceof MediumEditor).toBeTruthy();
-            expect(extOne.base instanceof MediumEditor).toBeTruthy();
+            expect(editor instanceof Medium).toBeTruthy();
+            expect(extOne.base instanceof Medium).toBeTruthy();
             expect(extTwo.base).toBeUndefined();
         });
 
         it('should set the name of the extension', function () {
-            var editor = new MediumEditor('.editor', {
+            var editor = new Medium('.editor', {
                 extensions: {
                     'one': extOne,
                     'two': extTwo

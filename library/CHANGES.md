@@ -177,7 +177,7 @@
 1.7.2 / 2014-03-22
 ==================
 
-* Removes DOM elements created by MediumEditor on deactivate
+* Removes DOM elements created by Medium on deactivate
 
 
 1.7.1 / 2014-03-22
@@ -336,7 +336,7 @@
 1.1.4 / 2013-10-13
 ==================
 
-* Exports MediumEditor as module
+* Exports Medium as module
 * Changes "Underline" button to display "U" instead of "S"
 
 
