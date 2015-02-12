@@ -21,6 +21,9 @@ medium.editor.*:
     description:
       type: label
       label: 'Description'
+    delay:
+      type: label
+      label: 'Delay'
     settings:
       type: sequence
       label: 'Settings'

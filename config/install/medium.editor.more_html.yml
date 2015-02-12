@@ -7,8 +7,8 @@ settings:
     - bold
     - italic
     - quote
-    - h1
-    - h2
+    - header1
+    - header2
     - superscript
     - subscript
     - unorderedlist

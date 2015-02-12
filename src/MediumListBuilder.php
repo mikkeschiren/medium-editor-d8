@@ -25,6 +25,7 @@ class MediumListBuilder extends ConfigEntityListBuilder {
     $header['label'] = $this->t('Name');
     $header['description'] = $this->t('Description');
     $header['toolbar'] = $this->t('Toolbar');
+    $header['delay'] = $this->t('Delay');
     return $header + parent::buildHeader();
   }
 
@@ -35,6 +36,7 @@ class MediumListBuilder extends ConfigEntityListBuilder {
     $row['label'] = $medium_editor->label();
     $row['description'] = String::checkPlain($medium_editor->get('description'));
     $row['toolbar'] = String::checkPlain(implode(', ', $medium_editor->getToolbar()));
+    $row['delay'] = String::checkPlain($medium_editor->get('delay'));
     return $row + parent::buildRow($medium_editor);
   }
 

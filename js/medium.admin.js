@@ -39,7 +39,8 @@ Drupal.behaviors.mediumAdmin = {attach: function(context, settings) {
       if ($input.length) {
         $input.addClass('has-medium-tw');
         for (i = 0; inputEl = $input[i]; i++) {
-          Main.attachTw(inputEl, mediumset.twSettings);
+          // @todo: this breaks so that evry field get effected it seems...
+        //Main.attachTw(inputEl, mediumset.twSettings);
         }
       }
     }

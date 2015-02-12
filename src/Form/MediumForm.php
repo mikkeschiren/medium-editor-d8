@@ -52,6 +52,12 @@ class MediumForm extends EntityForm {
       '#title' => $this->t('Description'),
       '#default_value' => $medium_editor->get('description'),
     );
+    // Delay
+    $form['delay'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Delay'),
+      '#default_value' => $medium_editor->get('delay'),
+    );
     // Settings
     $form['settings'] = array('#tree' => TRUE);
     // Toolbar
