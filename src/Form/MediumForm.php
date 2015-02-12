@@ -58,6 +58,18 @@ class MediumForm extends EntityForm {
       '#title' => $this->t('Delay'),
       '#default_value' => $medium_editor->get('delay'),
     );
+    // Diffleft
+    $form['diffleft'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Diffleft'),
+      '#default_value' => $medium_editor->get('diffleft'),
+    );
+    // Diffright
+    $form['difftop'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Difftop'),
+      '#default_value' => $medium_editor->get('difftop'),
+    );
     // Settings
     $form['settings'] = array('#tree' => TRUE);
     // Toolbar

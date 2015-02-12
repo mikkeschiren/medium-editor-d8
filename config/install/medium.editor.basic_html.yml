@@ -3,6 +3,8 @@ id: basic_html
 label: 'Basic HTML'
 description: 'Editor for Basic HTML text format.'
 delay: 1000
+diffleft: 0
+difftop: -10
 settings:
   toolbar:
     - bold

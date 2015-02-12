@@ -24,6 +24,12 @@ medium.editor.*:
     delay:
       type: label
       label: 'Delay'
+    diffleft:
+      type: label
+      label: 'diffLeft'
+    difftop:
+      type: label
+      label: 'diffTop'
     settings:
       type: sequence
       label: 'Settings'
