@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\medium\Plugin\Editor\Medium.
+ * Contains \Drupal\medium\Plugin\Editor\MediumEditor.
  */
 
 namespace Drupal\medium\Plugin\Editor;
@@ -18,13 +18,13 @@ use Drupal\medium\Entity\Medium;
  *
  * @Editor(
  *   id = "medium",
- *   label = "Medium",
+ *   label = "MediumEditor",
  *   supports_content_filtering = FALSE,
  *   supports_inline_editing = FALSE,
  *   is_xss_safe = TRUE
  * )
  */
-class Medium extends EditorBase {
+class MediumEditor extends EditorBase {
 
   /**
    * {@inheritdoc}

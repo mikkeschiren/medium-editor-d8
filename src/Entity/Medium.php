@@ -127,6 +127,7 @@ class Medium extends ConfigEntityBase {
       );
       \Drupal::service('plugin.manager.medium.plugin')->alterEditorJS($this->jsData, $this, $editor);
     }
+    console.log('returns');
     return $this->jsData;
   }
 

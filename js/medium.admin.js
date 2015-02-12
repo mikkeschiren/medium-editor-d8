@@ -31,22 +31,22 @@ var Main = Drupal.mediumAdmin = {};
  * Drupal behavior .
  */
 Drupal.behaviors.mediumAdmin = {attach: function(context, settings) {
-  var i, wrpEl, inputEl, $input, bueset;
-  if (bueset = settings.medium) {
+  var i, wrpEl, inputEl, $input, mediumset;
+  if (mediumset = settings.medium) {
     // Attach toolbar widget to toolbar input fields.
-    if ($.fn.sortable && bueset.twSettings) {
+    if ($.fn.sortable && mediumset.twSettings) {
       $input = $('.medium-toolbar-input', context).not('.has-medium-tw');
       if ($input.length) {
         $input.addClass('has-medium-tw');
         for (i = 0; inputEl = $input[i]; i++) {
-          Main.attachTw(inputEl, bueset.twSettings);
+          Main.attachTw(inputEl, mediumset.twSettings);
         }
       }
     }
     // Install demo
-    if (bueset.demoSettings) {
+    if (mediumset.demoSettings) {
       if (wrpEl = $('.medium-demo', context).not('.demo-processed').addClass('demo-processed')[0]) {
-        Main.createDemo(wrpEl, bueset.demoSettings);
+        Main.createDemo(wrpEl, mediumset.demoSettings);
       }
     }
   }

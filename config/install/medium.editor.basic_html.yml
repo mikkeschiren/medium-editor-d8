@@ -1,0 +1,23 @@
+# Basic HTML Editor
+id: basic_html
+label: 'Basic HTML'
+description: 'Editor for Basic HTML text format.'
+settings:
+  toolbar:
+    - bold
+    - italic
+    - '-'
+    - h4
+    - h5
+    - h6
+    - '-'
+    - quote
+    - code
+    - '-'
+    - ul
+    - ol
+    - '-'
+    - image
+    - link
+  acTags: true
+langcode: en
