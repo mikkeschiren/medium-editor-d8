@@ -1,4 +1,4 @@
-(function ($, Drupal, MEDIUM) {
+(function ($, Drupal, MediumEditor) {
 'use strict';
 
 /**
@@ -96,7 +96,7 @@ Main.createTwElements = function(items) {
     item = items[id];
     // Create the item element and set required attributes
     template = !item.code && typeof item.template === 'string' && item.template;
-    el = MEDIUM.createEl(template || MEDIUM.buttonHtml(item));
+    el = MediumEditor.createEl(template || MediumEditor.buttonHtml(item));
     el.setAttribute('data-medium-tw-item', id);
     el.className += ' medium-tw-item';
     if (item.multiple || template && item.multiple === undefined) {
@@ -127,7 +127,7 @@ Main.processTwItems = function(items) {
       continue;
     }
     // Copy missing properties from definitions in library files.
-    ret[id] = MEDIUM.extend({id: id}, MEDIUM.getButtonDefinition(id), item);
+    ret[id] = MediumEditor.extend({id: id}, MediumEditor.getButtonDefinition(id), item);
   }
   return ret;
 };
@@ -218,7 +218,7 @@ Main.syncInput = function($toolbar) {
 Main.createDemo = function(wrpEl, settings) {
   var E, textarea, date = new Date();
   if (textarea = $('textarea', wrpEl)[0]) {
-    if (E = MEDIUM.attach(textarea, settings)) {
+    if (E = MediumEditor.attach(textarea, settings)) {
       // Set load time info
       E.addContent('Editor load time: ' + (new Date() - date) + 'ms', '\n');
       // Update editor format on format select. It can be used by preview button.
@@ -230,4 +230,4 @@ Main.createDemo = function(wrpEl, settings) {
   return E;
 };
 
-})(jQuery, Drupal, MEDIUM);
+})(jQuery, Drupal, MediumEditor);

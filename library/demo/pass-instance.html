@@ -40,14 +40,14 @@
           alert('This is editor: #' + this.base.id);
         };
 
-        var one = new Medium('.one', {
+        var one = new MediumEditor('.one', {
             buttons: ['extension'],
             extensions: {
               extension: new Extension()
             }
         });
 
-        var two = new Medium('.two', {
+        var two = new MediumEditor('.two', {
             buttons: ['extension'],
             extensions: {
               extension: new Extension()

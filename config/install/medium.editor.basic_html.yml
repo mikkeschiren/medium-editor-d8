@@ -6,18 +6,8 @@ settings:
   toolbar:
     - bold
     - italic
-    - '-'
-    - h4
-    - h5
-    - h6
-    - '-'
     - quote
-    - code
-    - '-'
-    - ul
-    - ol
-    - '-'
-    - image
-    - link
+    - h1
+    - h2
   acTags: true
 langcode: en

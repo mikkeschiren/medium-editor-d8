@@ -31,7 +31,7 @@
     <p style="text-align: center;"><small><a style="color: #333;" target="_blank" href="http://www.goodreads.com/reader/475-great-expectations">Source</a></small></p>
     <script src="../dist/js/medium-editor.js"></script>
     <script>
-        var editor = new Medium('.editable', {
+        var editor = new MediumEditor('.editable', {
                 buttons: ['bold', 'italic', 'underline', 'quote', 'anchor', 'superscript', 'subscript', 'orderedlist', 'unorderedlist', 'pre', 'outdent', 'indent'],
                 buttonLabels: 'fontawesome',
                 staticToolbar: true,
@@ -39,7 +39,7 @@
 
             });
 
-        var editor2 = new Medium('.secondEditable', {
+        var editor2 = new MediumEditor('.secondEditable', {
                 buttons: ['bold', 'italic', 'underline', 'anchor'],
                 buttonLabels: {
                     'bold': 'bold',

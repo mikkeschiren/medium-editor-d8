@@ -1,4 +1,4 @@
-MEDIUM:
+MediumEditor:
   version: VERSION
   js:
     library/dist/js/medium-editor.min.js: {minified: true}
@@ -8,7 +8,7 @@ MEDIUM:
   dependencies:
     - core/jquery
 
-MEDIUM.dev:
+MediumEditor.dev:
   version: VERSION
   js:
     library/dist/js/medium-editor.js: {}
@@ -26,7 +26,7 @@ drupal.medium:
     - core/jquery
     - core/drupal
     - core/drupalSettings
-    - medium/MEDIUM
+    - medium/MediumEditor
 
 drupal.medium.translation:
   version: VERSION

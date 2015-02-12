@@ -1,4 +1,4 @@
-/*global Medium, describe, it, expect,
+/*global MediumEditor, describe, it, expect,
          afterEach, beforeEach, fireEvent, spyOn,
          selectElementContentsAndFire, jasmine, tearDown,
          console, xit*/
@@ -20,7 +20,7 @@ describe('Resize TestCase', function () {
     });
 
     it('should reset toolbar position on window resize', function () {
-        var editor = new Medium('.editor');
+        var editor = new MediumEditor('.editor');
         selectElementContentsAndFire(editor.elements[0]);
         jasmine.clock().tick(101);
         expect(editor.toolbar.className.indexOf('active') > -1).toBe(true);
@@ -34,7 +34,7 @@ describe('Resize TestCase', function () {
     // I believe some other test is breaking this one, it passes when runs alone
     // it is calling setToolbar even with no text selected
     xit('should not call setToolbarPosition when toolbar is not visible', function () {
-        var editor = new Medium('.editor');
+        var editor = new MediumEditor('.editor');
         spyOn(editor, 'setToolbarPosition');
         fireEvent(window, 'resize');
         jasmine.clock().tick(101);

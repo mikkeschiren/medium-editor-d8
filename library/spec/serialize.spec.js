@@ -1,4 +1,4 @@
-/*global Medium, describe, it, expect, spyOn,
+/*global MediumEditor, describe, it, expect, spyOn,
          afterEach, beforeEach, selectElementContents,
          fireEvent, tearDown*/
 
@@ -18,7 +18,7 @@ describe('Anchor Button TestCase', function () {
     });
 
     it('should return the editor content as a JSON object', function () {
-        var editor = new Medium('.editor'),
+        var editor = new MediumEditor('.editor'),
             json = editor.serialize();
         expect(json).toEqual({
             'medium-editor-test': {
@@ -29,7 +29,7 @@ describe('Anchor Button TestCase', function () {
 
     it('should set a custom id when elements have no ids', function () {
         this.el.removeAttribute('id');
-        var editor = new Medium('.editor'),
+        var editor = new MediumEditor('.editor'),
             json = editor.serialize();
         expect(json).toEqual({
             'element-0': {

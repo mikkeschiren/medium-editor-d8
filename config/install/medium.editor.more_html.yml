@@ -1,0 +1,25 @@
+# More HTML Editor
+id: more_html
+label: 'More HTML'
+description: 'Editor for More HTML text format.'
+settings:
+  toolbar:
+    - bold
+    - italic
+    - quote
+    - h1
+    - h2
+    - superscript
+    - subscript
+    - unorderedlist
+    - orderedlist
+    - pre
+    - justifyLeft
+    - justifyFull
+    - justifyCenter
+    - justifyRight
+    - image
+    - indent
+    - outdent
+  acTags: true
+langcode: en

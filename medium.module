@@ -26,6 +26,6 @@ function medium_js_settings_alter(array &$settings, \Drupal\Core\Asset\AttachedA
 function medium_library_info_alter(array &$libraries, $module) {
   // Use dev version of MEDIUM library if dev mode is on.
   if ($module === 'medium' && \Drupal::config('medium.settings')->get('devmode')) {
-    $libraries['MEDIUM'] = $libraries['MEDIUM.dev'];
+    $libraries['MediumEditor'] = $libraries['MediumEditor.dev'];
   }
 }

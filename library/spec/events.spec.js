@@ -1,4 +1,4 @@
-/*global Medium, describe, it, expect, spyOn, jasmine, fireEvent,
+/*global MediumEditor, describe, it, expect, spyOn, jasmine, fireEvent,
          afterEach, beforeEach, selectElementContents, runs, waitsFor,
          tearDown */
 
@@ -24,7 +24,7 @@ describe('Events TestCase', function () {
             el = document.createElement('div');
             el = document.body.appendChild(el);
             spy = jasmine.createSpy('handler');
-            editor = new Medium('.editor');
+            editor = new MediumEditor('.editor');
             editor.on(el, 'click', spy);
             fireEvent(el, 'click');
             jasmine.clock().tick(1);
@@ -37,7 +37,7 @@ describe('Events TestCase', function () {
             var el, editor, spy;
             el = document.createElement('div');
             spy = jasmine.createSpy('handler');
-            editor = new Medium('.editor');
+            editor = new MediumEditor('.editor');
             editor.on(el, 'click', spy);
             editor.off(el, 'click', spy);
             fireEvent(el, 'click');

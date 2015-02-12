@@ -1,4 +1,4 @@
-(function ($, Drupal, MEDIUM) {
+(function ($, Drupal, MediumEditor) {
 'use strict';
 
 /**
@@ -7,11 +7,11 @@
  */
 
 /**
- * Override MEDIUM translation with Drupal translation.
+ * Override MediumEditor translation with Drupal translation.
  */
-MEDIUM.dt = MEDIUM.t;
-MEDIUM.t = function(str, tokens) {
-  return MEDIUM.i18n[str] ? MEDIUM.dt(str, tokens) : Drupal.t(str, tokens);
+MediumEditor.dt = MediumEditor.t;
+MediumEditor.t = function(str, tokens) {
+  return MediumEditor.i18n[str] ? MediumEditor.dt(str, tokens) : Drupal.t(str, tokens);
 };
 
 /**
@@ -44,4 +44,4 @@ Drupal.t('Alternative text')
 Drupal.t('Browse')
 */
 
-})(jQuery, Drupal, MEDIUM);
+})(jQuery, Drupal, MediumEditor);

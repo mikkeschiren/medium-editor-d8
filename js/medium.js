@@ -1,4 +1,4 @@
-(function ($, Drupal, MEDIUM) {
+(function ($, Drupal, MediumEditor) {
 'use strict';
 
 /**
@@ -17,14 +17,14 @@ if (Drupal.editors) Drupal.editors.medium = {
       if (!settings.inputFormat) {
         settings.inputFormat = format.format;
       }
-      return MEDIUM.attach(element, settings);
+      return MediumEditor.attach(element, settings);
     }
   },
   detach: function (element, format, trigger) {
-    return MEDIUM.detach(element);
+    return MediumEditor.detach(element);
   },
   onChange: function (element, callback) {
   },
 };
 
-})(jQuery, Drupal, MEDIUM);
+})(jQuery, Drupal, MediumEditor);

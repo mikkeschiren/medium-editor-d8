@@ -1,4 +1,4 @@
-(function ($, Drupal, MEDIUM) {
+(function ($, Drupal, MediumEditor) {
 'use strict';
 
 /**
@@ -9,13 +9,13 @@
 /**
  * Register buttons.
  */
-MEDIUM.registerButtons('Medium.xpreview', function() {
+MediumEditor.registerButtons('Medium.xpreview', function() {
   return {
     xpreview: {
       id: 'xpreview',
       label: Drupal.t('Preview'),
       cname: 'ficon-preview',
-      code: MEDIUM.xPreview
+      code: MediumEditor.xPreview
     }
   };
 });
@@ -23,7 +23,7 @@ MEDIUM.registerButtons('Medium.xpreview', function() {
 /**
  * Previews editor content asynchronously.
  */
-var MEDIUMXP = MEDIUM.xPreview = function(E) {
+var MediumEditorXP = MediumEditor.xPreview = function(E) {
   E.toggleButtonsDisabled();
   E.togglePreview();
   if (E.previewing) {
@@ -31,7 +31,7 @@ var MEDIUMXP = MEDIUM.xPreview = function(E) {
     E.previewXHR = Drupal.xPreview({
       input: E.getContent(),
       format: E.settings.inputFormat,
-      callback: MEDIUMXP.complete,
+      callback: MediumEditorXP.complete,
       E: E
     });
   }
@@ -40,10 +40,10 @@ var MEDIUMXP = MEDIUM.xPreview = function(E) {
 /**
  * Complete handler of ajax preview.
  */
-MEDIUMXP.complete = function(opt) {
+MediumEditorXP.complete = function(opt) {
   var E = opt.E, success = opt.status, output = opt.output;
   if (E.previewing) {
-    if (!success) output = MEDIUMXP.wrapMsg(output);
+    if (!success) output = MediumEditorXP.wrapMsg(output);
     E.setPreviewContent(output);
     // Attach behaviors
     if (success && output) {
@@ -56,8 +56,8 @@ MEDIUMXP.complete = function(opt) {
 /**
  * Formats a preview message.
  */
-MEDIUMXP.wrapMsg = function(msg, type) {
+MediumEditorXP.wrapMsg = function(msg, type) {
   return '<div class="messages messages--' + (type || 'error') + '">' + msg + '</div>';
 };
 
-})(jQuery, Drupal, MEDIUM);
+})(jQuery, Drupal, MediumEditor);
