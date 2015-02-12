@@ -6,6 +6,7 @@ MediumEditor:
     component:
       library/dist/css/medium-editor.min.css: {minified: true}
       library/dist/css/themes/default.css: {}
+      css/medium.css: {}
   dependencies:
     - core/jquery
 
