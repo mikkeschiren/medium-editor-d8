@@ -12,32 +12,28 @@
 if (Drupal.editors) Drupal.editors.medium = {
   attach: function (element, format) {
   if (format.editor == 'medium') {
-    // hack to remove textarea
+    // hack to hide textarea
     var $field = $('#' + element.id);
-    $field.wrap('<div class="editable-wrapper" />');
-    $field.parent().append('<div class="medium-editor-container">' + $field.val() + '</div>');
-    $field.parent().parent().parent().find('label').hide();
+    var styles = $field.attr('style');
+    if (typeof styles != 'undefined') {
+        styles = ' style="' + styles + '"';
+    }
+    $field.wrap('<div class="editable-wrapper"/>');
+    var $w = $field.parent();
+    $w.prepend('<div class="medium-editable" ' + styles + ' data-placeholder="'+$field.attr('placeholder')+'">' + $field.val()+'</div>');
     $field.hide();
+
     // catch the value for the submit
     $('form').submit(function(){
       $('.editable-wrapper').each(function(){
-      //  $(this).find('textarea').val(serialize().$(this).find('.medium-editor-container').value());
-       var valuetest = $(this).find('.medium-editor-container').value();
-       //var valuetest = 'ffo bar';
-        //$(this).find('textarea').val(valuetest);
-        var textarean = $(this).find('textarea');
-        $(this).find('textarea').val('foo bar');
-        console.log(valuetest);
-        debugger;
-        //textarean.val(serialize(valuetest,value()));
-       // console.log(textarea.val());
-        //debugger;
+        var values = $(this).find('.medium-editable').html();
+        $(this).find('textarea').attr( 'data-editor-value-is-changed', 'true' );
+        $(this).find('textarea').val(values);
       });
+
     });
     // Get buttons to use from configuration.
     toolbar = format.editorSettings.toolbar;
-    console.log(format.editorSettings);
-    //diffleft = format.editorSettings.diffleft;
     return new MediumEditor('.editable-wrapper', {
       buttons: toolbar,
       diffLeft: 0,
@@ -53,7 +49,7 @@ if (Drupal.editors) Drupal.editors.medium = {
     $field.parent().parent().parent().find('label').show();
     // Remove divs created for medium
     $( ".editable-wrapper > div").unwrap();
-    $( ".medium-editor-container" ).remove();
+    $( ".medium-editable" ).remove();
 
 
     //debugger;
