@@ -21,8 +21,16 @@ if (Drupal.editors) Drupal.editors.medium = {
     // catch the value for the submit
     $('form').submit(function(){
       $('.editable-wrapper').each(function(){
-        //$(this).parent().value;
-        $(this).find('textarea').val($(this).find('.medium-editor-container').text());
+      //  $(this).find('textarea').val(serialize().$(this).find('.medium-editor-container').value());
+       var valuetest = $(this).find('.medium-editor-container').value();
+       //var valuetest = 'ffo bar';
+        //$(this).find('textarea').val(valuetest);
+        var textarean = $(this).find('textarea');
+        $(this).find('textarea').val('foo bar');
+        console.log(valuetest);
+        debugger;
+        //textarean.val(serialize(valuetest,value()));
+       // console.log(textarea.val());
         //debugger;
       });
     });
@@ -38,11 +46,16 @@ if (Drupal.editors) Drupal.editors.medium = {
     }
   },
   detach: function (element, format, trigger) {
-    console.log(element);
     var $field = $('#' + element.id);
+    // Show taxtarea again
     $field.show();
+    // Show label again
     $field.parent().parent().parent().find('label').show();
-    $( "div" ).remove( ".medium-editor-container" );
+    // Remove divs created for medium
+    $( ".editable-wrapper > div").unwrap();
+    $( ".medium-editor-container" ).remove();
+
+
     //debugger;
   },
   onChange: function (element, callback) {
