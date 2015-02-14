@@ -38,46 +38,6 @@ entity.medium_editor.duplicate_form:
   requirements:
     _entity_create_access: 'medium_editor'
 
-medium.buttons:
-  path: '/admin/config/content/medium/buttons'
-  defaults:
-    _controller: '\Drupal\medium\Controller\MediumController::buttonsOverview'
-    _title: 'Buttons'
-  requirements:
-    _permission: 'administer medium'
-
-medium.button_add:
-  path: '/admin/config/content/medium/buttons/add-button'
-  defaults:
-    _entity_form: 'medium_button.add'
-    _title: 'Add button'
-  requirements:
-    _entity_create_access: 'medium_button'
-
-entity.medium_button.edit_form:
-  path: '/admin/config/content/medium/buttons/{medium_button}'
-  defaults:
-    _entity_form: 'medium_button.edit'
-    _title: 'Edit button'
-  requirements:
-    _entity_access: 'medium_button.update'
-
-entity.medium_button.delete_form:
-  path: '/admin/config/content/medium/buttons/{medium_button}/delete'
-  defaults:
-    _entity_form: 'medium_button.delete'
-    _title: 'Delete button'
-  requirements:
-    _entity_access: 'medium_button.delete'
-
-entity.medium_button.duplicate_form:
-  path: '/admin/config/content/medium/buttons/{medium_button}/duplicate'
-  defaults:
-    _entity_form: 'medium_button.duplicate'
-    _title: 'Duplicate button'
-  requirements:
-    _entity_create_access: 'medium_button'
-
 medium.settings:
   path: '/admin/config/content/medium/settings'
   defaults:

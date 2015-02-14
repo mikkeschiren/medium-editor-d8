@@ -44,54 +44,6 @@ medium.editor_settings.toolbar:
     - type: string
       label: 'Toolbar item'
 
-medium.editor_settings.cname:
-  type: string
-  label: 'Class name'
-
-medium.editor_settings.indent:
-  type: boolean
-  label: 'Enable indentation'
-
-medium.editor_settings.acTags:
-  type: boolean
-  label: 'Autocomplete HTML tags'
-
-# Medium Button entity
-medium.button.*:
-  type: config_entity
-  label: 'Medium Button'
-  mapping:
-    id:
-      type: string
-      label: 'ID'
-    label:
-      type: label
-      label: 'Name'
-    tooltip:
-      type: label
-      label: 'Tooltip'
-    text:
-      type: string
-      label: 'Button text'
-    cname:
-      type: string
-      label: 'Class name'
-    shortcut:
-      type: string
-      label: 'Shortcut'
-    code:
-      type: string
-      label: 'Code'
-    template:
-      type: string
-      label: 'Template'
-    libraries:
-      type: sequence
-      label: 'Required libraries'
-      sequence:
-        - type: string
-          label: 'Library name'
-
 # Editor module plugin
 editor.settings.medium:
   type: mapping

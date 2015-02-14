@@ -12,5 +12,4 @@ settings:
     - quote
     - header1
     - header2
-  acTags: true
 langcode: en

@@ -23,5 +23,4 @@ settings:
     - outdent
   diffleft: 0
   difftop: -10
-  acTags: true
 langcode: en
