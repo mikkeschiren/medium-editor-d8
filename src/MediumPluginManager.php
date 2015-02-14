@@ -103,40 +103,6 @@ class MediumPluginManager extends DefaultPluginManager {
   }
 
   /**
-   * Returns buttons defined by plugins.
-   *
-   * @return array
-   *   An array of button definitions keyed by button ids.
-   */
-  public function getButtons() {
-    $buttons = array();
-    foreach ($this->getButtonGroups() as $plugin => $group) {
-      $buttons = array_merge($buttons, $group['buttons']);
-    }
-    return $buttons;
-  }
-
-  /**
-   * Returns buttons grouped by owner plugin.
-   *
-   * @return array
-   *   An array of button lists keyed by plugin id.
-   */
-  public function getButtonGroups() {
-    $plugin_buttons = array();
-    $definitions = $this->getDefinitions();
-    foreach ($this->invokeAll('getButtons') as $plugin => $buttons) {
-      if ($buttons) {
-        foreach ($buttons as $bid => $label) {
-          $buttons[$bid] = (is_array($label) ? $label : array('label' => $label)) + array('id' => $bid);
-        }
-        $plugin_buttons[$plugin] = array('label' => $definitions[$plugin]['label'], 'buttons' => $buttons);
-      }
-    }
-    return $plugin_buttons;
-  }
-
-  /**
    * Alters javascript data of a Medium Editor entity.
    */
   public function alterEditorJS(array &$data, Medium $medium_editor, Editor $editor = NULL) {

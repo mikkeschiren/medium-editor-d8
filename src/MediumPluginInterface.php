@@ -20,15 +20,6 @@ use Drupal\medium\Entity\Medium;
  * @see plugin_api
  */
 interface MediumPluginInterface extends PluginInspectionInterface {
-
-  /**
-   * Returns plugin buttons.
-   *
-   * @return array
-   *   An array of id:label pairs.
-   */
-  public function getButtons();
-
   /**
    * Alters JS data of a Medium Editor.
    *

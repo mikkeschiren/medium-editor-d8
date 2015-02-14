@@ -21,14 +21,6 @@ use Drupal\medium\Entity\Medium;
  * @see plugin_api
  */
 abstract class MediumPluginBase extends PluginBase implements MediumPluginInterface {
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getButtons() {
-    return array();
-  }
-
   /**
    * {@inheritdoc}
    */

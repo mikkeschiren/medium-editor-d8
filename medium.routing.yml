@@ -85,10 +85,3 @@ medium.settings:
     _title: 'Settings'
   requirements:
     _permission: 'administer medium'
-
-drupal.xpreview:
-  path: '/xpreview'
-  defaults:
-    _controller: '\Drupal\medium\Controller\XPreviewController::response'
-  requirements:
-    _permission: 'access ajax preview'

@@ -45,5 +45,4 @@ class MediumDeleteForm extends EntityConfirmFormBase {
     drupal_set_message($this->t('Editor %name has been deleted.', array('%name' => $this->entity->label())));
     $form_state->setRedirectUrl($this->getCancelUrl());
   }
-
 }

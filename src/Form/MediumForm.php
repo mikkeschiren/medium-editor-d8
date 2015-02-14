@@ -147,8 +147,6 @@ class MediumForm extends EntityForm {
    */
   public static function getToolbarWidget() {
     $pm = \Drupal::service('plugin.manager.medium.plugin');
-    $widget = array('items' => $pm->getButtons(), 'libraries' => array('medium/drupal.medium.admin'));
-    $pm->alterToolbarWidget($widget);
     return $widget;
   }
 

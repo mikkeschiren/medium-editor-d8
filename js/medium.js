@@ -49,6 +49,14 @@ if (Drupal.editors) Drupal.editors.medium = {
   // When changing editor, we remove everything Medium.
   detach: function (element, format, trigger) {
     var $field = $('#' + element.id);
+    $('.editable-wrapper').each(function(){
+      var mediumText = $(this).find('.medium-editable').html();
+      var textArea = $(this).find('textarea');
+      // We need to set the value attribute to changed.
+      textArea.attr( 'data-editor-value-is-changed', 'true' );
+      textArea.val(mediumText);
+    });
+
     // Show taxtarea again.
     $field.show();
     // Show label again.
