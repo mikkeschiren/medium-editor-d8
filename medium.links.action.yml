@@ -9,9 +9,3 @@ medium.associate:
   title: 'Associate with text formats'
   appears_on:
     - medium.admin
-
-medium.button_add:
-  route_name: medium.button_add
-  title: 'Add button'
-  appears_on:
-    - medium.buttons
