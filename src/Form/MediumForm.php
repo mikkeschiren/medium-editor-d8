@@ -72,8 +72,7 @@ class MediumForm extends EntityForm {
     );
     // Settings
     $form['settings'] = array('#tree' => TRUE);
-    // Toolbar
-    $widget = $this->getToolbarWidget();
+
     $widget_libraries = $widget['libraries'];
     unset($widget['libraries']);
     $form['settings']['toolbar_config'] = array(
@@ -138,16 +137,6 @@ class MediumForm extends EntityForm {
       drupal_set_message($this->t('The changes have been saved.'));
     }
     $form_state->setRedirect('entity.medium_editor.edit_form', array('medium_editor' => $medium_editor->id()));
-  }
-
-  /**
-   * Returns toolbar widget data.
-   *
-   * @return array
-   */
-  public static function getToolbarWidget() {
-    $pm = \Drupal::service('plugin.manager.medium.plugin');
-    return $widget;
   }
 
 }
