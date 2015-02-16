@@ -22,8 +22,8 @@ if (Drupal.editors) Drupal.editors.medium = {
     }
     // Create an wrapper and placeholder. Medium uses a div, not textarea.
     $field.wrap('<div class="editable-wrapper"/>');
-    var $parentfild = $field.parent();
-    $parentfild.prepend('<div class="medium-editable" ' + styles + ' data-placeholder="'+$field.attr('placeholder')+'">' + $field.val()+'</div>');
+    var $parentfield = $field.parent();
+    $parentfield.prepend('<div class="medium-editable" ' + styles + ' data-placeholder="'+$field.attr('placeholder')+'">' + $field.val()+'</div>');
     // Hide the textarea, we don't use it for editing.
     $field.hide();
     // We need to copy the value from the div to the normal textarea on submit.
@@ -39,7 +39,7 @@ if (Drupal.editors) Drupal.editors.medium = {
     });
     // Get buttons to use from configuration.
     toolbar = format.editorSettings.toolbar;
-    return new MediumEditor('.editable-wrapper', {
+    return new MediumEditor('.medium-editable', {
       buttons: toolbar,
       diffLeft: 0,
       diffTop: -10
@@ -56,7 +56,6 @@ if (Drupal.editors) Drupal.editors.medium = {
       textArea.attr( 'data-editor-value-is-changed', 'true' );
       textArea.val(mediumText);
     });
-
     // Show taxtarea again.
     $field.show();
     // Show label again.
@@ -68,9 +67,4 @@ if (Drupal.editors) Drupal.editors.medium = {
   onChange: function (element, callback) {
   }
 };
-
-
-
-
 })(jQuery, Drupal, MediumEditor);
-
