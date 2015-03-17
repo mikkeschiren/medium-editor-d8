@@ -67,4 +67,9 @@ if (Drupal.editors) Drupal.editors.medium = {
   onChange: function (element, callback) {
   }
 };
+
+  $(window).on('editor:dialogsave', function (e, values) {
+    $( ".medium-editable" ).append('<img src="' + values.attributes.src + '" width="' + values.attributes.width + '" alt="'+ values.attributes.alt +'">');
+  });
+
 })(jQuery, Drupal, MediumEditor);

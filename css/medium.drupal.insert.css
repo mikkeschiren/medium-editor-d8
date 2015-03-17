@@ -1,0 +1,8 @@
+#media_insert {
+ border: 1px solid red;
+ height: 20px;
+ width: 50px;
+ clear: both;
+ padding: 5px;
+ text-align: center;
+}

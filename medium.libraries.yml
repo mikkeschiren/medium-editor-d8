@@ -2,11 +2,13 @@ MediumEditor:
   version: VERSION
   js:
     library/dist/js/medium-editor.min.js: {minified: true}
+    js/medium.drupal.insert.js: {}
   css:
     component:
       library/dist/css/medium-editor.min.css: {minified: true}
       library/dist/css/themes/default.css: {}
       css/medium.css: {}
+      css/medium.drupal.insert.css: {}
   dependencies:
     - core/jquery
 
@@ -14,10 +16,12 @@ MediumEditor.dev:
   version: VERSION
   js:
     library/dist/js/medium-editor.js: {}
+    js/medium.drupal.insert.js: {}
   css:
     component:
       library/dist/css/medium-editor.css: {}
       library/dist/css/themes/bootstrap.css: {}
+      css/medium.drupal.insert.css: {}
   dependencies:
     - core/jquery
 

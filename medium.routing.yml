@@ -45,3 +45,12 @@ medium.settings:
     _title: 'Settings'
   requirements:
     _permission: 'administer medium'
+
+medium.image.modal:
+  path: '/medium/image/modal/{filter_format}'
+  defaults:
+    _title: 'Insert image'
+    _form: '\Drupal\medium\Form\MediumImageForm'
+  requirements:
+    _entity_access: 'filter_format.use'
+    _permission: 'administer medium'
