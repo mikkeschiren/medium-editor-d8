@@ -5,6 +5,10 @@ Get a medium editor clone inside Drupal using https://github.com/daviferreira/me
 Download with composer in module root folder:
 composer install
 
+If you dont have composer installed, you could install it with:
+curl -sS https://getcomposer.org/installer | php
+
+
 ## Install
 Should be straight forward. Two settings is included in the install that could be used.
 
