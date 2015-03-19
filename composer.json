@@ -1,0 +1,19 @@
+{
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "medium-editor",
+                "version": "3.0.9",
+                "source": {
+                    "url": "https://github.com/daviferreira/medium-editor",
+                    "type": "git",
+                    "reference": "3.0.9"
+                }
+            }
+        }
+    ],
+    "require": {
+        "medium-editor": "3.0.9"
+    }
+}

@@ -1,11 +1,11 @@
 MediumEditor:
   version: VERSION
   js:
-    library/dist/js/medium-editor.min.js: {minified: true}
+    vendor/medium-editor/dist/js/medium-editor.min.js: {minified: true}
   css:
     component:
-      library/dist/css/medium-editor.min.css: {minified: true}
-      library/dist/css/themes/default.css: {}
+      vendor/medium-editor/dist/css/medium-editor.min.css: {minified: true}
+      vendor/medium-editor/dist/css/themes/default.css: {}
       css/medium.css: {}
   dependencies:
     - core/jquery
@@ -13,11 +13,11 @@ MediumEditor:
 MediumEditor.dev:
   version: VERSION
   js:
-    library/dist/js/medium-editor.js: {}
+    vendor/medium-editor/dist/js/medium-editor.js: {}
   css:
     component:
-      library/dist/css/medium-editor.css: {}
-      library/dist/css/themes/bootstrap.css: {}
+      vendor/medium-editor/dist/css/medium-editor.css: {}
+      vendor/medium-editor/dist/css/themes/bootstrap.css: {}
   dependencies:
     - core/jquery
 
